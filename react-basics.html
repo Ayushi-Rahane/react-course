@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Basics</title>
+  
+  <body>
+    <div class="js-container"></div>
+    <div class="new-container"></div>
+    <div class="multi-container"></div>
+    <script src="react-basics.js">    </script>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render('Welcome to SuperSimpleDev React Course');
+       // html code for btn element in js. 
+       // we will render this button using react
+       // jsx allows us to write html code inside js files
+      const btn = <button>Click Me!</button>;
+      const newCont = document.querySelector('.new-container');
+      ReactDOM.createRoot(newCont).render(btn);
+
+      // now we will create paragraph using react
+        const para = <p>This is a paragraph created using React!</p>;
+        ReactDOM.createRoot(container).render(para);
+
+        // now we will display mutliple elements using react
+        const div = (
+            <div>
+                <h1>This is a heading</h1>
+                <p>This is a paragraph  2*3: {2*3}</p>
+                <button>Click Here</button>
+            </div>
+        );
+        const multiCost = document.querySelector('.multi-container');
+        ReactDOM.createRoot(multiCost).render(div);
+         
+
+
+
+    </script>
+  </body>
+</html>
