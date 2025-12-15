@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBot</title>
+</head>
+<body>
+    <div class="container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/babel.js  "></script>
+
+    <script type="text/babel">
+      function ChatInput(){
+        return(
+           <> {/*React Fragment: won't let us use extra div */}
+                <input 
+                    placeholder="Send a message to Chatbot" 
+                    size="40"
+                />
+                <button>Send</button>
+           </>
+        );
+       }
+
+       function ChatMessage(props){
+     //   const msg = props.message;
+       // const img_src = props.img_src;
+
+       const {msg} = props;
+       const {sender} = props;
+
+    /*. it's shortcut is giving below using guard operator: && 
+      if(sender=="robot"){
+        return (
+             <div>
+                <img src="robot.png" 
+                alt="chatbot image" width="50" />
+                 {msg}
+            </div>
+        );
+       }*/
+        return(
+            <div>
+                {sender==='robot' && (
+                    <img src="robot.png" 
+                    alt="chatbot image" width="50" />
+            )}
+                {msg}
+                {sender==='user' && <img src="user.png" alt="chatbot image" width="50" />}
+            </div>
+        );
+       }
+       
+     
+       const app = (
+           <>
+              <ChatInput />
+              <ChatMessage msg="hello chatbott" sender="user" />
+               <ChatMessage msg="hello user" sender="robot" />
+           </>
+       )
+      const cont = document.querySelector(".container");
+      ReactDOM.createRoot(cont).render(app);
+    </script>
+
+
+</body>
+</html>
