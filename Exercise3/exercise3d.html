@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 3d</title>
+</head>
+<body>
+    <div class="container"></div>
+  <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/chatbot.js"></script>
+    <script src="https://unpkg.com/supersimpledev/babel.js  "></script>
+
+    <script type="text/babel">
+  
+       function Button1(props){
+          return(
+            <>
+                <button onClick={props.increCounter}> Clicked {props.counter} times </button>
+            </>
+          )
+       }
+
+       function Button2(props){
+      
+            return(
+                <>
+                    <button onClick={props.increCounter}> Clicked {props.counter} times </button>
+                </>
+            )
+       }
+       function BtnReset({resetCounter}){
+              return(
+                <>
+                 <button onClick={resetCounter}> Reset </button>
+                </>
+              )
+       }
+        
+       function App(){
+          const[counter, setCounter] = React.useState(0);
+        function increCounter(){
+            setCounter(counter + 1);
+        }
+        function resetCounter(){
+            setCounter(0);
+        }
+        return(
+            <>
+                <Button1 counter = {counter} increCounter={increCounter}/>
+                <Button2 counter = {counter} increCounter={increCounter}/>
+                <BtnReset resetCounter={resetCounter}/>
+            </>
+        )
+       }
+        const cnt = document.querySelector(".container");
+      
+        ReactDOM.createRoot(cnt).render(<App/>);
+    </script>    
+</body>
+</html>

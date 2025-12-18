@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 3</title>
+</head>
+<body>
+    <div class="container"></div>
+     <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/chatbot.js"></script>
+    <script src="https://unpkg.com/supersimpledev/babel.js  "></script>
+
+    <script type="text/babel">
+
+        
+       function App(){
+       const array = React.useState(0);
+       const counter = array[0];
+       const setCounter = array[1];
+       function handleClick(){
+            setCounter(counter + 1);
+            console.log("Clicked")
+        }
+
+     return(
+        <>
+              <button onClick={handleClick}>Clicked {counter} {counter==1?'time':'times'}</button>
+        </>
+     );
+    }
+        const cnt = document.querySelector(".container");
+      
+        ReactDOM.createRoot(cnt).render(<App/>);
+
+    </script>
+</body>
+</html>
